@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>Boceto B refinado · Portal de Asesores GABEN</title>
+<title>Preguntas frecuentes · Portal de Asesores GABEN</title>
 <!-- Modo app (PWA): al agregar a la pantalla de inicio abre en pantalla completa con el ícono de GABEN -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#363A3D">
@@ -223,14 +223,14 @@
     </div>
     <nav>
       <p class="nav-h">Menú</p>
-      <a href="#" class="on"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Inicio</a>
-      <a href="preguntas.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9a2.4 2.4 0 014.7.6c0 1.6-2.4 2-2.4 3.4M12 17h.01"/></svg>Preguntas frecuentes</a>
-      <a href="#top-precios"><svg viewBox="0 0 24 24"><path d="M12 2v20M6 6h9a3 3 0 010 6H6"/></svg>Precios y servicios</a>
-      <a href="#top-solic"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 16h6"/></svg>Solicitudes y formatos</a>
-      <a href="#top-firma"><svg viewBox="0 0 24 24"><path d="M3 17c3-4 6 2 9-1s5-6 9-3"/><path d="M14 6l4 4"/></svg>Firma de contratos</a>
-      <a href="#top-recursos"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h10"/></svg>Recursos y guías</a>
-      <a href="#top-tools"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 21l-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg>Herramientas</a>
-      <a href="#top-contacto"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H7l-3 3z"/></svg>Contacto legal</a>
+      <a href="portal.html"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Inicio</a>
+      <a href="#top-faq" class="on"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9a2.4 2.4 0 014.7.6c0 1.6-2.4 2-2.4 3.4M12 17h.01"/></svg>Preguntas frecuentes</a>
+      <a href="portal.html#top-precios"><svg viewBox="0 0 24 24"><path d="M12 2v20M6 6h9a3 3 0 010 6H6"/></svg>Precios y servicios</a>
+      <a href="portal.html#top-solic"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 16h6"/></svg>Solicitudes y formatos</a>
+      <a href="portal.html#top-firma"><svg viewBox="0 0 24 24"><path d="M3 17c3-4 6 2 9-1s5-6 9-3"/><path d="M14 6l4 4"/></svg>Firma de contratos</a>
+      <a href="portal.html#top-recursos"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h10"/></svg>Recursos y guías</a>
+      <a href="portal.html#top-tools"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 21l-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg>Herramientas</a>
+      <a href="portal.html#top-contacto"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H7l-3 3z"/></svg>Contacto legal</a>
     </nav>
     <div class="side-foot">
       <div class="ava"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
@@ -247,236 +247,115 @@
       </label>
     </div>
 
-    <!-- Hero -->
-    <section class="hero fade d1">
-      <div class="hero-txt">
-        <span class="hi" id="hi">Hola, equipo</span>
-        <h1>Todo lo que necesitas para asesorar, en un solo lugar.</h1>
-        <p>Formatos al día, herramientas y guías de GABEN. Toma lo que ocupes y sigue con tu cliente.</p>
-        <a href="cotizador.html" class="cta">Abrir cotizador de garantías
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-      <div class="hero-img" role="img" aria-label="Firma de contrato de arrendamiento con respaldo jurídico"></div>
-    </section>
+    <!-- Volver al portal -->
+    <a href="portal.html" style="display:inline-flex;align-items:center;gap:7px;margin:2px 0 6px;color:var(--accent);font-weight:600;font-size:13.5px">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>Volver al portal
+    </a>
 
+    <!-- Resolver dudas (FAQ) -->
+    <section class="sec fade d1" id="top-faq" style="scroll-margin-top:16px">
+      <div class="sec-h"><h2>Preguntas frecuentes</h2><span style="font-size:13px;color:var(--faint)">Respuestas rápidas para atender a tu cliente</span></div>
+      <div class="faqwrap">
 
-    <!-- 1 · Precios y servicios -->
-    <section class="sec fade d2" id="top-precios" style="scroll-margin-top:16px">
-      <div class="sec-h"><h2>Precios y servicios</h2><a href="#">Ver todo</a></div>
-      <div class="cards">
-        <a class="card" href="https://drive.google.com/file/d/1U5tMMXXUc2DZgc3pBzcJSO_3s2CcRQB7/view" target="_blank" rel="noopener">
-          <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></div>
-          <h3>Lista de precios · Garantía Jurídica</h3>
-          <p>Tarifa oficial del servicio, con IVA y condiciones de pago.</p>
-          <div class="chips"><span class="pill acc">Informativo</span><span class="pill">MTY · PUE</span></div>
-        </a>
-        <a class="card" href="https://drive.google.com/file/d/1xiHWwuUV4u636YD0pBDHQKDPQeyXKdxW/view" target="_blank" rel="noopener">
-          <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></div>
-          <h3>Lista de precios · Servicios adicionales</h3>
-          <p>Tarifas de los servicios de GABEN distintos a la garantía.</p>
-          <div class="chips"><span class="pill acc">Informativo</span><span class="pill">MTY · PUE</span><span class="pill">Solo asesor</span></div>
-        </a>
-        <a class="card" href="https://drive.google.com/file/d/1U5tMMXXUc2DZgc3pBzcJSO_3s2CcRQB7/view" target="_blank" rel="noopener">
-          <div class="cico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v16"/></svg></div>
-          <h3>Tabulador de precios</h3>
-          <p>Precio de la garantía según el monto de renta mensual.</p>
-          <div class="chips"><span class="pill acc">Informativo</span><span class="pill">MTY · PUE</span></div>
-        </a>
-        <a class="card" href="https://www.gaben.mx" target="_blank" rel="noopener">
-          <div class="cico"><svg viewBox="0 0 24 24"><path d="M14 3h7v7"/><path d="M21 3l-9 9"/><path d="M21 14v5a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h5"/></svg></div>
-          <h3>Sitio web · Legal Solutions</h3>
-          <p>Página oficial de GABEN: servicios, precios y contacto.</p>
-          <div class="chips"><span class="pill acc">Enlace web</span><span class="pill">MTY · PUE</span></div>
-        </a>
-        <a class="card" href="https://drive.google.com/file/d/1ic9QGy08O16MJTnWcy4OtL-gAylc7qiJ/view" target="_blank" rel="noopener">
-          <div class="cico"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></div>
-          <h3>Datos bancarios</h3>
-          <p>Cuentas de hh para que el cliente deposite (con factura).</p>
-          <div class="chips"><span class="pill acc">Informativo</span><span class="pill">MTY · PUE</span></div>
-        </a>
-      </div>
-    </section>
+        <div class="faqcat">El servicio</div>
+        <details class="faq"><summary>¿Qué es la Garantía Jurídica (la "póliza")?</summary>
+          <div class="faq-a">Es un servicio jurídico que <b>protege al propietario</b>: se <b>investiga al inquilino</b>, se <b>elabora el contrato</b> de arrendamiento y se da <b>cobertura legal</b> si el inquilino incumple (cobranza, mediación, juicio y hasta la entrega del inmueble). En corto: es un <b>blindaje</b> de la propiedad, no solo un contrato.</div>
+        </details>
+        <details class="faq"><summary>¿Qué incluye cada plan?</summary>
+          <div class="faq-a">Hay 4 niveles; a más nivel, más cobertura:
+            <ul>
+              <li><b>Digital</b> — investigación, dictamen y contrato (firma electrónica).</li>
+              <li><b>Básica</b> — lo anterior + mediación, juicio, rentas caídas, daños, lanzamiento e inventario 360°.</li>
+              <li><b>Plus</b> ⭐ (la más contratada) — todo lo de Básica + protocolo 24/7, vigencia extendida a 13 meses y asistencia en entrega.</li>
+              <li><b>Élite</b> — todo lo de Plus + apoyo financiero por impago y asesoría ante extinción de dominio.</li>
+            </ul>
+            💡 Tip: <b>lidera con Plus</b> y solo menciona que hay más opciones.</div>
+        </details>
 
-    <!-- 3 · Solicitudes y formatos -->
-    <section class="sec fade d3" id="top-solic" style="scroll-margin-top:16px">
-      <div class="sec-h"><h2>Solicitudes y formatos</h2><a href="#">Ver todo</a></div>
-      <div class="cards">
-        <a class="card" href="https://drive.google.com/file/d/1v4Nktz25D7O4507SoosbhfDfDY3G2e-h/view" target="_blank" rel="noopener">
-          <div class="cico"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 16h4"/></svg></div>
-          <h3>Solicitud inquilino y garante · PF</h3>
-          <p>Persona física: datos personales, laborales y financieros.</p>
-          <div class="chips"><span class="pill acc">Formato para llenar</span><span class="pill">Cliente</span></div>
-        </a>
-        <a class="card" href="https://drive.google.com/file/d/1FgC17Hi3j8GpC8cjTWk8PvYXpIFRaOcH/view" target="_blank" rel="noopener">
-          <div class="cico"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 16h4"/></svg></div>
-          <h3>Solicitud inquilino y garante · PM</h3>
-          <p>Persona moral: datos de la empresa y representantes.</p>
-          <div class="chips"><span class="pill acc">Formato para llenar</span><span class="pill">Cliente</span></div>
-        </a>
-        <a class="card" href="https://drive.google.com/file/d/10NQ8mR_9HGo_m9X2S4XhvNHaFQn9H74Y/view" target="_blank" rel="noopener">
-          <div class="cico"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 16h4"/></svg></div>
-          <h3>Solicitud propietario · PF</h3>
-          <p>Para propietario persona física que ofrece su inmueble.</p>
-          <div class="chips"><span class="pill acc">Formato para llenar</span><span class="pill">Propietario</span></div>
-        </a>
-        <a class="card" href="https://drive.google.com/file/d/1wBk6acYYY8GSbDE5u14w35SAdokeTqJm/view" target="_blank" rel="noopener">
-          <div class="cico"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 16h4"/></svg></div>
-          <h3>Solicitud propietario · PM</h3>
-          <p>Para propietario persona moral que ofrece su inmueble.</p>
-          <div class="chips"><span class="pill acc">Formato para llenar</span><span class="pill">Propietario</span></div>
-        </a>
-        <a class="card" href="https://drive.google.com/file/d/1JzDKn5HYyO6x4tATWvq1Gk2UIY6akUJv/view" target="_blank" rel="noopener">
-          <div class="cico"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 4v5c0 4-3 7-7 9-4-2-7-5-7-9V7z"/></svg></div>
-          <h3>Autorización de consulta de buró</h3>
-          <p>Permite consultar el historial crediticio del solicitante.</p>
-          <div class="chips"><span class="pill acc">Formato para llenar</span><span class="pill">Asesor · Cliente</span></div>
-        </a>
-      </div>
-    </section>
+        <div class="faqcat">Precios</div>
+        <details class="faq"><summary>¿Cuánto cuesta?</summary>
+          <div class="faq-a">Todos los precios son <b>+ IVA</b>, con anticipo de <b>$2,500</b> para iniciar. Precio de <b>pago único</b> (renta &lt; $15,000):
+            <ul>
+              <li>Digital $3,000 · Básica $4,600 · <b>Plus ⭐ $5,200</b> · Élite $15,000</li>
+              <li>Si la renta es <b>≥ $15,000</b>: es un % de la renta (Plus 35%, Básica 30%, Élite 75%, Digital 20%).</li>
+              <li>Inmueble <b>comercial/industrial</b>: se suma un adicional (Plus +$800, Básica +$900, Digital +$1,000, Élite $0).</li>
+            </ul>
+            🎯 Da el precio de <b>Plus</b>, di que hay más opciones y ofrece pasar el detalle. Confirma si es habitacional o comercial solo si no está claro (cambia el precio). O usa el <b>cotizador</b> del portal.</div>
+        </details>
+        <details class="faq"><summary>¿Hay opción de pagos (suscripción)?</summary>
+          <div class="faq-a">Sí, en <b>Plus</b> y <b>Élite</b>:
+            <ul>
+              <li><b>Plus:</b> $2,500 inicial + $350/mes (o +3% de la renta/mes si ≥ $15,000).</li>
+              <li><b>Élite:</b> $2,500 inicial + $1,200/mes (o +7% de la renta/mes si ≥ $15,000).</li>
+            </ul>
+            🎁 Contratos a más de 2 años en pago único: <b>50% de descuento el 2º año</b>.</div>
+        </details>
+        <details class="faq"><summary>"¿Por qué tan caro?"</summary>
+          <div class="faq-a">Explica el <b>valor</b>: no es solo un contrato — incluye la investigación del inquilino, el respaldo de abogados y la <b>cobertura legal completa</b> (juicio, lanzamiento, cobro de rentas). Es un blindaje del patrimonio. Y menciona que hay planes más accesibles (<b>Digital</b> o <b>Básica</b>).</div>
+        </details>
 
-    <!-- 5 · Firma de contratos -->
-    <section class="sec fade d4" id="top-firma" style="scroll-margin-top:16px">
-      <div class="sec-h"><h2>Firma de contratos</h2><a href="#">Ver todo</a></div>
-      <div class="cards">
-        <a class="card" href="https://drive.google.com/file/d/1rHqp3kkEGpNRvH3BMYojznAlrWLN5JbX/view" target="_blank" rel="noopener">
-          <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></div>
-          <h3>¿Por qué es válida la firma electrónica?</h3>
-          <p>Fundamento legal y validez jurídica en México.</p>
-          <div class="chips"><span class="pill acc">Informativo</span><span class="pill">Asesor · Propietario</span></div>
-        </a>
-        <a class="card" href="https://drive.google.com/file/d/1Ffl_WIzXhJuO8PVNFeyKt-ZSEvxhUBm8/view" target="_blank" rel="noopener">
-          <div class="cico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
-          <h3>Firma a distancia (no electrónica)</h3>
-          <p>Procedimiento cuando las partes están en lugares distintos.</p>
-          <div class="chips"><span class="pill acc">Instructivo</span><span class="pill">Asesor · Cliente</span></div>
-        </a>
-        <a class="card" href="https://drive.google.com/file/d/18MpaLpWGQfKUKmsC-EhM2dShgIebTSyq/view" target="_blank" rel="noopener">
-          <div class="cico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
-          <h3>Firma electrónica con Webdox</h3>
-          <p>Cómo completar la firma del contrato en la plataforma.</p>
-          <div class="chips"><span class="pill acc">Instructivo</span><span class="pill">MTY · PUE</span></div>
-        </a>
-        <a class="card" href="https://drive.google.com/file/d/1gq2myu_5JmtZB3_OeVOmPb7KFi7gB5vv/view" target="_blank" rel="noopener">
-          <div class="cico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
-          <h3>Firma presencial del contrato</h3>
-          <p>Guía paso a paso del proceso de firma en persona.</p>
-          <div class="chips"><span class="pill acc">Instructivo</span><span class="pill">MTY · PUE</span></div>
-        </a>
+        <div class="faqcat">Proceso</div>
+        <details class="faq"><summary>¿Cómo funciona? (explícalo en 4 pasos)</summary>
+          <div class="faq-a">
+            <ol>
+              <li>Nos das los <b>documentos del inquilino</b> y lo investigamos.</li>
+              <li>Te entregamos el <b>dictamen</b> (aprobado o no), normalmente en <b>1 día hábil</b>.</li>
+              <li>Elaboramos el <b>contrato</b> de arrendamiento.</li>
+              <li><b>Firma</b> y listo. 🖊️</li>
+            </ol></div>
+        </details>
+        <details class="faq"><summary>"Me interesa, ¿qué sigue?"</summary>
+          <div class="faq-a">Son 2 cositas:
+            <ol>
+              <li><b>Anticipo de $2,500 + IVA</b> (≈ $2,900) para iniciar.</li>
+              <li><b>Documentos del inquilino</b> (identificación, comprobante de domicilio, ingresos, etc.).</li>
+            </ol>
+            En cuanto confirme interés o mande el comprobante, <b>pásalo con el Lic. Alan</b>, que lleva el proceso.
+            <span class="esc">🤝 Handoff: avisa al Lic. Alan (legal@gaben.mx · 81 3602 9699) con nombre del cliente, inmueble, tipo y plan, y pásale al cliente su contacto.</span></div>
+        </details>
+        <details class="faq"><summary>"¿Cómo va mi folio?"</summary>
+          <div class="faq-a">Revisa el <b>chat del folio</b> o consúltalo con el <b>Lic. Alan</b>, que lleva cada expediente (investigación → dictamen → contrato → firma).</div>
+        </details>
+
+        <div class="faqcat">Documentos</div>
+        <details class="faq"><summary>¿Qué documentos necesita el inquilino?</summary>
+          <div class="faq-a">ID vigente, comprobante de domicilio, autorización de buró y comprobantes de ingreso (nómina CFDI o estados de cuenta + constancia fiscal). Formatos: <b>GB-FTGO01</b> (persona física) · <b>GB-FTGO02</b> (persona moral) — están en <b>Solicitudes y formatos</b>.</div>
+        </details>
+        <details class="faq"><summary>¿Cuándo se piden los documentos del propietario?</summary>
+          <div class="faq-a"><b>Después</b> de que el inquilino sale <b>aprobado</b> en el dictamen (no antes). Formatos: <b>GB-FTGO03/04</b>. Regla: si <b>ya contrató</b> → envía el formato; si <b>aún no</b> → dale solo la <b>lista</b>.</div>
+        </details>
+
+        <div class="faqcat">Firma</div>
+        <details class="faq"><summary>¿La firma es presencial o electrónica?</summary>
+          <div class="faq-a">Por defecto <b>presencial</b>. No ofrezcas la electrónica de entrada. Si el cliente pregunta: <i>"Preferimos presencial, pero si de plano no se puede, la hacemos electrónica."</i> El servicio se paga <b>antes</b> de firmar.</div>
+        </details>
+        <details class="faq"><summary>¿Es válida la firma electrónica?</summary>
+          <div class="faq-a">Sí, es <b>100% válida legalmente</b> (Código de Comercio Art. 89 y Código Civil). Se usa la plataforma <b>Webdox</b>, con sello criptográfico e inalterabilidad. Si el cliente ya tuvo servicio, compártele el documento <b>"¿Por qué es válida la firma electrónica?"</b> (en Firma de contratos).</div>
+        </details>
+
+        <div class="faqcat">Pagos y contacto</div>
+        <details class="faq"><summary>¿Cuáles son los datos bancarios?</summary>
+          <div class="faq-a">Están en el recurso <b>"Datos bancarios"</b> (sección Precios y servicios). ⚠️ Compártelos <b>solo cuando el cliente ya confirmó interés</b> — no a cualquiera que pregunte. Flujo: das info → preguntas si le interesa → si dice que sí, pasas los datos.</div>
+        </details>
+        <details class="faq"><summary>¿En qué ciudades operan?</summary>
+          <div class="faq-a"><b>Monterrey</b> (tribunales de N.L.) y <b>Puebla</b>. 📞 Contacto GABEN: 81 2882 2228 · legal@gaben.mx.</div>
+        </details>
+        <details class="faq"><summary>Servicios adicionales y revisión de Buró</summary>
+          <div class="faq-a">Ejemplos (Regular / Cliente, + IVA): Investigación $899 / $499 · <b>Reporte de Buró $299 / $130</b> · Abogado en firma $3,499 / $1,749 · Renovación de contrato $4,299 / $1,999. El Buró requiere el <b>Formato de Autorización</b> firmado.</div>
+        </details>
+
+        <div class="faqcat">Cuándo pasar el caso a un abogado</div>
+        <details class="faq"><summary>¿Cuándo escalo con un abogado?</summary>
+          <div class="faq-a">Escala cuando la duda sea <b>legal, delicada o muy técnica</b> del contrato. Con honestidad: <i>"eso ya es muy específico, mejor lo ves con un abogado."</i>
+            <span class="esc">📞 Servicio/legal normal → Lic. Alan (legal@gaben.mx · 81 3602 9699). Caso delicado o cliente muy molesto → Fernando (fbenavides@gaben.mx).</span></div>
+        </details>
+        <details class="faq"><summary>"Mi inquilino no paga / incumplió"</summary>
+          <div class="faq-a">Recaba los datos y <b>escala al Lic. Alan / Fernando</b>. Importante: el propietario debe avisar el incumplimiento <b>por escrito dentro de 30 días</b>. Si piden iniciar demanda → escala directo a Fernando.</div>
+        </details>
+
       </div>
     </section>
 
-    <!-- 4 · Recursos y guías -->
-    <section class="sec fade d2" id="top-recursos" style="scroll-margin-top:16px">
-      <div class="sec-h"><h2>Recursos y guías</h2><a href="#">Ver todo</a></div>
-      <div class="cards">
-        <a class="card" href="https://drive.google.com/file/d/1hKzZBL7fsjIiR03fOURlyf8JOYbOXk2F/view" target="_blank" rel="noopener">
-          <div class="cico"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v5h5"/><path d="M9 17c2-2 4 2 6 0"/></svg></div>
-          <h3>Contrato modelo · Monterrey</h3>
-          <p>Modelo de arrendamiento con garantía, como referencia.</p>
-          <div class="chips"><span class="pill acc">Contrato modelo</span><span class="pill">MTY</span><span class="pill">Solo asesor</span></div>
-        </a>
-        <a class="card" href="https://drive.google.com/file/d/1fwtVGNvUy-hUujFV6SDRQ9CD46CxvZZk/view" target="_blank" rel="noopener">
-          <div class="cico"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v5h5"/><path d="M9 17c2-2 4 2 6 0"/></svg></div>
-          <h3>Contrato modelo · Puebla</h3>
-          <p>Modelo de arrendamiento con garantía, como referencia.</p>
-          <div class="chips"><span class="pill acc">Contrato modelo</span><span class="pill">PUE</span><span class="pill warn">Provisional</span></div>
-        </a>
-        <a class="card" href="https://drive.google.com/file/d/1DJHqEuIOOSA_SCXZ22RQ_VnwYT7e2G0j/view" target="_blank" rel="noopener">
-          <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></div>
-          <h3>Guía de estacionamiento · MTY</h3>
-          <p>Ubicaciones para clientes y visitantes de la oficina.</p>
-          <div class="chips"><span class="pill acc">Informativo</span><span class="pill">MTY</span></div>
-        </a>
-        <a class="card" href="https://drive.google.com/file/d/1DJHqEuIOOSA_SCXZ22RQ_VnwYT7e2G0j/view" target="_blank" rel="noopener">
-          <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></div>
-          <h3>Guía de estacionamiento · PUE</h3>
-          <p>Ubicaciones para clientes y visitantes de la oficina.</p>
-          <div class="chips"><span class="pill acc">Informativo</span><span class="pill">PUE</span><span class="pill warn">Provisional</span></div>
-        </a>
-        <a class="card" href="https://drive.google.com/file/d/1dj6sVXN80lfFovAVVJuOe52ynsq1f-lB/view" target="_blank" rel="noopener">
-          <div class="cico"><svg viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 4-3 7-7 9-4-2-7-5-7-9V7z"/></svg></div>
-          <h3>Aviso de privacidad</h3>
-          <p>Tratamiento y resguardo de datos personales (LFPDPPP).</p>
-          <div class="chips"><span class="pill acc">Informativo</span><span class="pill">Cliente · Propietario</span></div>
-        </a>
-      </div>
-    </section>
-
-    <!-- Herramientas -->
-    <section class="sec fade d3" id="top-tools" style="scroll-margin-top:16px">
-      <div class="sec-h"><h2>Herramientas</h2><a href="#">Ver todo</a></div>
-      <div class="cards">
-        <a class="card" href="cotizador.html">
-          <div class="cico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></div>
-          <h3>Cotizador de garantías</h3>
-          <p>Calcula el plan y el anticipo en segundos.</p>
-          <div class="chips"><span class="pill acc">Abrir app</span></div>
-        </a>
-        <article class="card">
-          <div class="cico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 4-6"/></svg></div>
-          <h3>Verificador de buró</h3>
-          <p>Solicita y consulta el estudio del prospecto.</p>
-          <div class="chips"><span class="pill acc">Abrir app</span></div>
-        </article>
-        <article class="card">
-          <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-          <h3>Estatus de trámite</h3>
-          <p>Consulta en qué etapa va cada póliza.</p>
-          <div class="chips"><span class="pill acc">Abrir app</span></div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Contacto legal -->
-    <section class="sec fade d2" id="top-contacto" style="scroll-margin-top:16px">
-      <div class="sec-h"><h2>Contacto legal</h2></div>
-      <div class="cards">
-        <div class="card" style="cursor:default">
-          <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
-          <h3>Lic. Fernando García Benavides</h3>
-          <p>Dirección · Escalamiento de casos delicados.</p>
-          <div class="chips">
-            <a class="pill acc" href="tel:+528128822228" style="text-decoration:none">81 2882 2228</a>
-            <a class="pill" href="mailto:fbenavides@gaben.mx" style="text-decoration:none">fbenavides@gaben.mx</a>
-          </div>
-        </div>
-        <div class="card" style="cursor:default">
-          <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
-          <h3>Lic. Alan Jesús Ramírez Báez</h3>
-          <p>Abogado · Monterrey.</p>
-          <div class="chips">
-            <a class="pill acc" href="tel:+528136029699" style="text-decoration:none">81 3602 9699</a>
-            <a class="pill" href="mailto:legal@gaben.mx" style="text-decoration:none">legal@gaben.mx</a>
-          </div>
-        </div>
-        <div class="card" style="cursor:default">
-          <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
-          <h3>Lic. Rebeca Calvario Terán</h3>
-          <p>Abogada · Puebla.</p>
-          <div class="chips">
-            <a class="pill acc" href="tel:+522225110156" style="text-decoration:none">222 511 0156</a>
-            <a class="pill" href="mailto:puebla@gaben.mx" style="text-decoration:none">puebla@gaben.mx</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Preguntas frecuentes (enlace a su pagina) -->
-    <section class="sec fade d2">
-      <a href="preguntas.html" class="card" style="display:flex;align-items:center;gap:16px;text-decoration:none">
-        <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9a2.4 2.4 0 014.7.6c0 1.6-2.4 2-2.4 3.4M12 17h.01"/></svg></div>
-        <div style="flex:1">
-          <h3 style="margin:0 0 3px">Preguntas frecuentes</h3>
-          <p style="margin:0">Respuestas rapidas sobre el servicio, precios, proceso y firma — para atender a tu cliente.</p>
-        </div>
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-    </section>
-
-    <footer>
-      <span>GABEN · Legal &amp; Patrimonial</span>
-      <span>gaben.mx</span>
-    </footer>
   </main>
 </div>
 
