@@ -203,7 +203,7 @@
       <a href="#top-firma"><svg viewBox="0 0 24 24"><path d="M3 17c3-4 6 2 9-1s5-6 9-3"/><path d="M14 6l4 4"/></svg>Firma de contratos</a>
       <a href="#top-recursos"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h10"/></svg>Recursos y guías</a>
       <a href="#top-tools"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 21l-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg>Herramientas</a>
-      <a href="#"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H7l-3 3z"/></svg>Contacto legal</a>
+      <a href="#top-contacto"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H7l-3 3z"/></svg>Contacto legal</a>
     </nav>
     <div class="side-foot">
       <div class="ava"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
@@ -216,30 +216,28 @@
     <div class="topbar fade">
       <label class="search">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
-        <input placeholder="Buscar un formato, guía o herramienta…" aria-label="Buscar">
+        <input id="q" placeholder="Buscar un documento, guía o herramienta…" aria-label="Buscar" autocomplete="off">
       </label>
-      <button class="icon-btn" aria-label="Notificaciones"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg></button>
     </div>
 
     <!-- Hero -->
     <section class="hero fade d1">
       <div class="hero-txt">
-        <span class="hi">Buenas tardes</span>
+        <span class="hi" id="hi">Hola, equipo</span>
         <h1>Todo lo que necesitas para asesorar, en un solo lugar.</h1>
         <p>Formatos al día, herramientas y guías de GABEN. Toma lo que ocupes y sigue con tu cliente.</p>
         <a href="cotizador.html" class="cta">Abrir cotizador de garantías
           <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <div class="hero-img" role="img" aria-label="Respaldo jurídico y patrimonial">
+      <div class="hero-img" role="img" aria-label="Protección jurídica y patrimonial">
         <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
-          <g fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2.4">
-            <path d="M120 210 l80 -58 l80 58" />
-            <rect x="150" y="152" width="100" height="70" rx="4"/>
-            <path d="M188 222 v-34 h24 v34"/>
-          </g>
-          <rect x="196" y="176" width="10" height="12" rx="2" fill="#C46B8B"/>
-          <g stroke="rgba(255,255,255,.32)" stroke-width="2.2" fill="none">
-            <circle cx="286" cy="92" r="11"/><path d="M296 100 l26 26 M314 118 l8 8 M320 112 l8 8"/>
+          <path d="M200 46 L296 78 L296 150 Q296 214 200 252 Q104 214 104 150 L104 78 Z"
+                fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.22)" stroke-width="2"/>
+          <g fill="none" stroke="rgba(255,255,255,.62)" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+            <path d="M150 152 L200 112 L250 152"/>
+            <path d="M160 147 V198 H240 V147"/>
+            <path d="M190 198 V170 H210 V198"/>
+            <path d="M170 160 h12 M218 160 h12"/>
           </g>
         </svg>
       </div>
@@ -412,6 +410,40 @@
       </div>
     </section>
 
+    <!-- Contacto legal -->
+    <section class="sec fade d2" id="top-contacto" style="scroll-margin-top:16px">
+      <div class="sec-h"><h2>Contacto legal</h2></div>
+      <div class="cards">
+        <div class="card" style="cursor:default">
+          <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+          <h3>Lic. Fernando García Benavides</h3>
+          <p>Dirección · Escalamiento de casos delicados.</p>
+          <div class="chips">
+            <a class="pill acc" href="tel:+528128822228" style="text-decoration:none">81 2882 2228</a>
+            <a class="pill" href="mailto:fbenavides@gaben.mx" style="text-decoration:none">fbenavides@gaben.mx</a>
+          </div>
+        </div>
+        <div class="card" style="cursor:default">
+          <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+          <h3>Lic. Alan Jesús Ramírez Báez</h3>
+          <p>Abogado · Monterrey.</p>
+          <div class="chips">
+            <a class="pill acc" href="tel:+528136029699" style="text-decoration:none">81 3602 9699</a>
+            <a class="pill" href="mailto:legal@gaben.mx" style="text-decoration:none">legal@gaben.mx</a>
+          </div>
+        </div>
+        <div class="card" style="cursor:default">
+          <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+          <h3>Lic. Rebeca Calvario Terán</h3>
+          <p>Abogada · Puebla.</p>
+          <div class="chips">
+            <a class="pill acc" href="tel:+522228089052" style="text-decoration:none">222 808 9052</a>
+            <a class="pill" href="mailto:puebla@gaben.mx" style="text-decoration:none">puebla@gaben.mx</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer>
       <span>GABEN · Legal &amp; Patrimonial</span>
       <span>gaben.mx</span>
@@ -428,4 +460,29 @@
   </div>
 </div>
 
+<script>
+(function(){
+  // Saludo según la hora
+  var h=new Date().getHours();
+  var g = h<12 ? "Buenos días" : (h<19 ? "Buenas tardes" : "Buenas noches");
+  var e=document.getElementById('hi'); if(e) e.textContent=g;
+  // Buscador: filtra tarjetas y oculta secciones sin resultados
+  var q=document.getElementById('q');
+  if(q){
+    var secs=[].slice.call(document.querySelectorAll('main section.sec'));
+    q.addEventListener('input', function(){
+      var t=q.value.trim().toLowerCase();
+      secs.forEach(function(s){
+        var vis=0;
+        [].slice.call(s.querySelectorAll('.card')).forEach(function(c){
+          var ok = !t || c.textContent.toLowerCase().indexOf(t)>-1;
+          c.style.display = ok ? '' : 'none';
+          if(ok) vis++;
+        });
+        s.style.display = vis ? '' : 'none';
+      });
+    });
+  }
+})();
+</script>
 </html>
