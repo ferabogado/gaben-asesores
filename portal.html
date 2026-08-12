@@ -195,6 +195,22 @@
   .designer p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.6}
   .designer .sw{display:inline-flex;align-items:center;gap:6px;margin-right:14px;font-size:12px;color:var(--muted)}
   .designer .sw i{width:12px;height:12px;border-radius:4px;display:inline-block}
+  /* FAQ · Resolver dudas */
+  .faqwrap{display:flex;flex-direction:column;gap:10px}
+  .faqcat{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:16px 0 2px}
+  .faqcat:first-child{margin-top:0}
+  details.faq{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);box-shadow:var(--shadow-sm);overflow:hidden}
+  details.faq summary{list-style:none;cursor:pointer;padding:15px 18px;font-weight:600;font-size:14.5px;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:14px}
+  details.faq summary::-webkit-details-marker{display:none}
+  details.faq summary::after{content:"+";font-size:22px;line-height:1;color:var(--accent);font-weight:400;flex:none}
+  details.faq[open] summary::after{content:"\2013"}
+  details.faq summary:hover{background:var(--surface-2)}
+  details.faq[open] summary{border-bottom:1px solid var(--line)}
+  .faq-a{padding:14px 18px 16px;font-size:13.5px;color:var(--muted);line-height:1.65}
+  .faq-a b{color:var(--ink);font-weight:600}
+  .faq-a ol,.faq-a ul{margin:8px 0;padding-left:20px}
+  .faq-a li{margin:3px 0}
+  .faq-a .esc{display:block;margin-top:10px;padding:9px 12px;background:var(--accent-tint);border-radius:9px;color:var(--accent);font-size:12.5px;font-weight:600}
 </style>
 
 <div class="app">
@@ -208,6 +224,7 @@
     <nav>
       <p class="nav-h">Menú</p>
       <a href="#" class="on"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Inicio</a>
+      <a href="#top-faq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9a2.4 2.4 0 014.7.6c0 1.6-2.4 2-2.4 3.4M12 17h.01"/></svg>Resolver dudas</a>
       <a href="#top-precios"><svg viewBox="0 0 24 24"><path d="M12 2v20M6 6h9a3 3 0 010 6H6"/></svg>Precios y servicios</a>
       <a href="#top-solic"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 16h6"/></svg>Solicitudes y formatos</a>
       <a href="#top-firma"><svg viewBox="0 0 24 24"><path d="M3 17c3-4 6 2 9-1s5-6 9-3"/><path d="M14 6l4 4"/></svg>Firma de contratos</a>
@@ -240,6 +257,110 @@
           <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="hero-img" role="img" aria-label="Firma de contrato de arrendamiento con respaldo jurídico"></div>
+    </section>
+
+    <!-- Resolver dudas (FAQ) -->
+    <section class="sec fade d1" id="top-faq" style="scroll-margin-top:16px">
+      <div class="sec-h"><h2>Resolver dudas</h2><span style="font-size:13px;color:var(--faint)">Respuestas rápidas para atender a tu cliente</span></div>
+      <div class="faqwrap">
+
+        <div class="faqcat">El servicio</div>
+        <details class="faq"><summary>¿Qué es la Garantía Jurídica (la "póliza")?</summary>
+          <div class="faq-a">Es un servicio jurídico que <b>protege al propietario</b>: se <b>investiga al inquilino</b>, se <b>elabora el contrato</b> de arrendamiento y se da <b>cobertura legal</b> si el inquilino incumple (cobranza, mediación, juicio y hasta la entrega del inmueble). En corto: es un <b>blindaje</b> de la propiedad, no solo un contrato.</div>
+        </details>
+        <details class="faq"><summary>¿Qué incluye cada plan?</summary>
+          <div class="faq-a">Hay 4 niveles; a más nivel, más cobertura:
+            <ul>
+              <li><b>Digital</b> — investigación, dictamen y contrato (firma electrónica).</li>
+              <li><b>Básica</b> — lo anterior + mediación, juicio, rentas caídas, daños, lanzamiento e inventario 360°.</li>
+              <li><b>Plus</b> ⭐ (la más contratada) — todo lo de Básica + protocolo 24/7, vigencia extendida a 13 meses y asistencia en entrega.</li>
+              <li><b>Élite</b> — todo lo de Plus + apoyo financiero por impago y asesoría ante extinción de dominio.</li>
+            </ul>
+            💡 Tip: <b>lidera con Plus</b> y solo menciona que hay más opciones.</div>
+        </details>
+
+        <div class="faqcat">Precios</div>
+        <details class="faq"><summary>¿Cuánto cuesta?</summary>
+          <div class="faq-a">Todos los precios son <b>+ IVA</b>, con anticipo de <b>$2,500</b> para iniciar. Precio de <b>pago único</b> (renta &lt; $15,000):
+            <ul>
+              <li>Digital $3,000 · Básica $4,600 · <b>Plus ⭐ $5,200</b> · Élite $15,000</li>
+              <li>Si la renta es <b>≥ $15,000</b>: es un % de la renta (Plus 35%, Básica 30%, Élite 75%, Digital 20%).</li>
+              <li>Inmueble <b>comercial/industrial</b>: se suma un adicional (Plus +$800, Básica +$900, Digital +$1,000, Élite $0).</li>
+            </ul>
+            🎯 Da el precio de <b>Plus</b>, di que hay más opciones y ofrece pasar el detalle. Confirma si es habitacional o comercial solo si no está claro (cambia el precio). O usa el <b>cotizador</b> del portal.</div>
+        </details>
+        <details class="faq"><summary>¿Hay opción de pagos (suscripción)?</summary>
+          <div class="faq-a">Sí, en <b>Plus</b> y <b>Élite</b>:
+            <ul>
+              <li><b>Plus:</b> $2,500 inicial + $350/mes (o +3% de la renta/mes si ≥ $15,000).</li>
+              <li><b>Élite:</b> $2,500 inicial + $1,200/mes (o +7% de la renta/mes si ≥ $15,000).</li>
+            </ul>
+            🎁 Contratos a más de 2 años en pago único: <b>50% de descuento el 2º año</b>.</div>
+        </details>
+        <details class="faq"><summary>"¿Por qué tan caro?"</summary>
+          <div class="faq-a">Explica el <b>valor</b>: no es solo un contrato — incluye la investigación del inquilino, el respaldo de abogados y la <b>cobertura legal completa</b> (juicio, lanzamiento, cobro de rentas). Es un blindaje del patrimonio. Y menciona que hay planes más accesibles (<b>Digital</b> o <b>Básica</b>).</div>
+        </details>
+
+        <div class="faqcat">Proceso</div>
+        <details class="faq"><summary>¿Cómo funciona? (explícalo en 4 pasos)</summary>
+          <div class="faq-a">
+            <ol>
+              <li>Nos das los <b>documentos del inquilino</b> y lo investigamos.</li>
+              <li>Te entregamos el <b>dictamen</b> (aprobado o no), normalmente en <b>1 día hábil</b>.</li>
+              <li>Elaboramos el <b>contrato</b> de arrendamiento.</li>
+              <li><b>Firma</b> y listo. 🖊️</li>
+            </ol></div>
+        </details>
+        <details class="faq"><summary>"Me interesa, ¿qué sigue?"</summary>
+          <div class="faq-a">Son 2 cositas:
+            <ol>
+              <li><b>Anticipo de $2,500 + IVA</b> (≈ $2,900) para iniciar.</li>
+              <li><b>Documentos del inquilino</b> (identificación, comprobante de domicilio, ingresos, etc.).</li>
+            </ol>
+            En cuanto confirme interés o mande el comprobante, <b>pásalo con el Lic. Alan</b>, que lleva el proceso.
+            <span class="esc">🤝 Handoff: avisa al Lic. Alan (legal@gaben.mx · 81 3602 9699) con nombre del cliente, inmueble, tipo y plan, y pásale al cliente su contacto.</span></div>
+        </details>
+        <details class="faq"><summary>"¿Cómo va mi folio?"</summary>
+          <div class="faq-a">Revisa el <b>chat del folio</b> o consúltalo con el <b>Lic. Alan</b>, que lleva cada expediente (investigación → dictamen → contrato → firma).</div>
+        </details>
+
+        <div class="faqcat">Documentos</div>
+        <details class="faq"><summary>¿Qué documentos necesita el inquilino?</summary>
+          <div class="faq-a">ID vigente, comprobante de domicilio, autorización de buró y comprobantes de ingreso (nómina CFDI o estados de cuenta + constancia fiscal). Formatos: <b>GB-FTGO01</b> (persona física) · <b>GB-FTGO02</b> (persona moral) — están en <b>Solicitudes y formatos</b>.</div>
+        </details>
+        <details class="faq"><summary>¿Cuándo se piden los documentos del propietario?</summary>
+          <div class="faq-a"><b>Después</b> de que el inquilino sale <b>aprobado</b> en el dictamen (no antes). Formatos: <b>GB-FTGO03/04</b>. Regla: si <b>ya contrató</b> → envía el formato; si <b>aún no</b> → dale solo la <b>lista</b>.</div>
+        </details>
+
+        <div class="faqcat">Firma</div>
+        <details class="faq"><summary>¿La firma es presencial o electrónica?</summary>
+          <div class="faq-a">Por defecto <b>presencial</b>. No ofrezcas la electrónica de entrada. Si el cliente pregunta: <i>"Preferimos presencial, pero si de plano no se puede, la hacemos electrónica."</i> El servicio se paga <b>antes</b> de firmar.</div>
+        </details>
+        <details class="faq"><summary>¿Es válida la firma electrónica?</summary>
+          <div class="faq-a">Sí, es <b>100% válida legalmente</b> (Código de Comercio Art. 89 y Código Civil). Se usa la plataforma <b>Webdox</b>, con sello criptográfico e inalterabilidad. Si el cliente ya tuvo servicio, compártele el documento <b>"¿Por qué es válida la firma electrónica?"</b> (en Firma de contratos).</div>
+        </details>
+
+        <div class="faqcat">Pagos y contacto</div>
+        <details class="faq"><summary>¿Cuáles son los datos bancarios?</summary>
+          <div class="faq-a">Están en el recurso <b>"Datos bancarios"</b> (sección Precios y servicios). ⚠️ Compártelos <b>solo cuando el cliente ya confirmó interés</b> — no a cualquiera que pregunte. Flujo: das info → preguntas si le interesa → si dice que sí, pasas los datos.</div>
+        </details>
+        <details class="faq"><summary>¿En qué ciudades operan?</summary>
+          <div class="faq-a"><b>Monterrey</b> (tribunales de N.L.) y <b>Puebla</b>. 📞 Contacto GABEN: 81 2882 2228 · legal@gaben.mx.</div>
+        </details>
+        <details class="faq"><summary>Servicios adicionales y revisión de Buró</summary>
+          <div class="faq-a">Ejemplos (Regular / Cliente, + IVA): Investigación $899 / $499 · <b>Reporte de Buró $299 / $130</b> · Abogado en firma $3,499 / $1,749 · Renovación de contrato $4,299 / $1,999. El Buró requiere el <b>Formato de Autorización</b> firmado.</div>
+        </details>
+
+        <div class="faqcat">Cuándo pasar el caso a un abogado</div>
+        <details class="faq"><summary>¿Cuándo escalo con un abogado?</summary>
+          <div class="faq-a">Escala cuando la duda sea <b>legal, delicada o muy técnica</b> del contrato. Con honestidad: <i>"eso ya es muy específico, mejor lo ves con un abogado."</i>
+            <span class="esc">📞 Servicio/legal normal → Lic. Alan (legal@gaben.mx · 81 3602 9699). Caso delicado o cliente muy molesto → Fernando (fbenavides@gaben.mx).</span></div>
+        </details>
+        <details class="faq"><summary>"Mi inquilino no paga / incumplió"</summary>
+          <div class="faq-a">Recaba los datos y <b>escala al Lic. Alan / Fernando</b>. Importante: el propietario debe avisar el incumplimiento <b>por escrito dentro de 30 días</b>. Si piden iniciar demanda → escala directo a Fernando.</div>
+        </details>
+
+      </div>
     </section>
 
     <!-- 1 · Precios y servicios -->
@@ -473,11 +594,13 @@
       var t=q.value.trim().toLowerCase();
       secs.forEach(function(s){
         var vis=0;
-        [].slice.call(s.querySelectorAll('.card')).forEach(function(c){
+        [].slice.call(s.querySelectorAll('.card, details.faq')).forEach(function(c){
           var ok = !t || c.textContent.toLowerCase().indexOf(t)>-1;
           c.style.display = ok ? '' : 'none';
           if(ok) vis++;
         });
+        // ocultar títulos de categoría de la FAQ al buscar
+        [].slice.call(s.querySelectorAll('.faqcat')).forEach(function(c){c.style.display=t?'none':'';});
         s.style.display = vis ? '' : 'none';
       });
     });
