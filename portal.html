@@ -130,6 +130,20 @@
             display:grid;place-items:center;box-shadow:var(--shadow-sm);cursor:pointer}
   .icon-btn svg{width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:1.7}
 
+  /* Selector de ciudad/zona */
+  .citybar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--surface);
+           border:1px solid var(--line);border-radius:13px;padding:10px 14px;box-shadow:var(--shadow-sm)}
+  .citybar .cl{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--muted)}
+  .citybar .cl svg{width:16px;height:16px;stroke:var(--accent-2);fill:none;stroke-width:1.8}
+  .citytog{display:inline-flex;gap:4px;background:var(--surface-2);border:1px solid var(--line);
+           border-radius:11px;padding:3px}
+  .cbtn{border:0;background:none;cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:600;
+        color:var(--muted);padding:7px 15px;border-radius:9px;transition:background .15s,color .15s}
+  .cbtn:hover{color:var(--ink)}
+  .cbtn.on{background:var(--accent);color:var(--accent-ink);box-shadow:var(--shadow-sm)}
+  .citybar .chint{font-size:12px;color:var(--faint);margin-left:auto}
+  @media (max-width:560px){.citybar .chint{display:none}}
+
   /* Hero de bienvenida */
   .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:0;background:var(--surface);
         border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-md)}
@@ -261,6 +275,17 @@
       </label>
     </div>
 
+    <!-- Selector de zona -->
+    <div class="citybar fade">
+      <span class="cl"><svg viewBox="0 0 24 24"><path d="M12 21s-6-5.2-6-10a6 6 0 1112 0c0 4.8-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg>Tu zona</span>
+      <div class="citytog" role="tablist" aria-label="Selecciona tu zona">
+        <button class="cbtn" data-city="mty" type="button">Monterrey</button>
+        <button class="cbtn" data-city="pue" type="button">Puebla</button>
+        <button class="cbtn on" data-city="all" type="button">Todos</button>
+      </div>
+      <span class="chint">Verás solo lo que aplica a tu zona</span>
+    </div>
+
     <!-- Hero -->
     <section class="hero fade d1">
       <div class="hero-txt">
@@ -383,25 +408,25 @@
     <section class="sec fade d2" id="top-recursos" style="scroll-margin-top:16px">
       <div class="sec-h"><h2>Recursos y guías</h2><a href="#">Ver todo</a></div>
       <div class="cards">
-        <a class="card" href="https://drive.google.com/file/d/1hKzZBL7fsjIiR03fOURlyf8JOYbOXk2F/view" target="_blank" rel="noopener">
+        <a class="card" data-city="mty" href="https://drive.google.com/file/d/1hKzZBL7fsjIiR03fOURlyf8JOYbOXk2F/view" target="_blank" rel="noopener">
           <div class="cico"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v5h5"/><path d="M9 17c2-2 4 2 6 0"/></svg></div>
           <h3>Contrato modelo · Monterrey</h3>
           <p>Modelo de arrendamiento con garantía, como referencia.</p>
           <div class="chips"><span class="pill acc">Contrato modelo</span><span class="pill">MTY</span><span class="pill">Solo asesor</span></div>
         </a>
-        <a class="card" href="https://drive.google.com/file/d/1fwtVGNvUy-hUujFV6SDRQ9CD46CxvZZk/view" target="_blank" rel="noopener">
+        <a class="card" data-city="pue" href="https://drive.google.com/file/d/1fwtVGNvUy-hUujFV6SDRQ9CD46CxvZZk/view" target="_blank" rel="noopener">
           <div class="cico"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v5h5"/><path d="M9 17c2-2 4 2 6 0"/></svg></div>
           <h3>Contrato modelo · Puebla</h3>
           <p>Modelo de arrendamiento con garantía, como referencia.</p>
           <div class="chips"><span class="pill acc">Contrato modelo</span><span class="pill">PUE</span><span class="pill warn">Provisional</span></div>
         </a>
-        <a class="card" href="https://drive.google.com/file/d/1DJHqEuIOOSA_SCXZ22RQ_VnwYT7e2G0j/view" target="_blank" rel="noopener">
+        <a class="card" data-city="mty" href="https://drive.google.com/file/d/1DJHqEuIOOSA_SCXZ22RQ_VnwYT7e2G0j/view" target="_blank" rel="noopener">
           <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></div>
           <h3>Guía de estacionamiento · MTY</h3>
           <p>Ubicaciones para clientes y visitantes de la oficina.</p>
           <div class="chips"><span class="pill acc">Informativo</span><span class="pill">MTY</span></div>
         </a>
-        <a class="card" href="https://drive.google.com/file/d/1DJHqEuIOOSA_SCXZ22RQ_VnwYT7e2G0j/view" target="_blank" rel="noopener">
+        <a class="card" data-city="pue" href="https://drive.google.com/file/d/1DJHqEuIOOSA_SCXZ22RQ_VnwYT7e2G0j/view" target="_blank" rel="noopener">
           <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></div>
           <h3>Guía de estacionamiento · PUE</h3>
           <p>Ubicaciones para clientes y visitantes de la oficina.</p>
@@ -426,18 +451,6 @@
           <p>Calcula el plan y el anticipo en segundos.</p>
           <div class="chips"><span class="pill acc">Abrir app</span></div>
         </a>
-        <article class="card">
-          <div class="cico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 4-6"/></svg></div>
-          <h3>Verificador de buró</h3>
-          <p>Solicita y consulta el estudio del prospecto.</p>
-          <div class="chips"><span class="pill acc">Abrir app</span></div>
-        </article>
-        <article class="card">
-          <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-          <h3>Estatus de trámite</h3>
-          <p>Consulta en qué etapa va cada póliza.</p>
-          <div class="chips"><span class="pill acc">Abrir app</span></div>
-        </article>
       </div>
     </section>
 
@@ -457,31 +470,31 @@
     <section class="sec fade d2" id="top-contacto" style="scroll-margin-top:16px">
       <div class="sec-h"><h2>Contacto legal</h2></div>
       <div class="cards">
-        <div class="card" style="cursor:default">
-          <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
-          <h3>Lic. Fernando García Benavides</h3>
-          <p>Dirección · Escalamiento de casos delicados.</p>
-          <div class="chips">
-            <a class="pill acc" href="tel:+528128822228" style="text-decoration:none">81 2882 2228</a>
-            <a class="pill" href="mailto:fbenavides@gaben.mx" style="text-decoration:none">fbenavides@gaben.mx</a>
-          </div>
-        </div>
-        <div class="card" style="cursor:default">
+        <div class="card" data-city="mty" style="cursor:default">
           <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
           <h3>Lic. Alan Jesús Ramírez Báez</h3>
-          <p>Abogado · Monterrey.</p>
+          <p>Abogado · Monterrey — tu primer contacto para dudas y gestiones.</p>
           <div class="chips">
             <a class="pill acc" href="tel:+528136029699" style="text-decoration:none">81 3602 9699</a>
             <a class="pill" href="mailto:legal@gaben.mx" style="text-decoration:none">legal@gaben.mx</a>
           </div>
         </div>
-        <div class="card" style="cursor:default">
+        <div class="card" data-city="pue" style="cursor:default">
           <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
           <h3>Lic. Rebeca Calvario Terán</h3>
-          <p>Abogada · Puebla.</p>
+          <p>Abogada · Puebla — tu primer contacto para dudas y gestiones.</p>
           <div class="chips">
             <a class="pill acc" href="tel:+522225110156" style="text-decoration:none">222 511 0156</a>
             <a class="pill" href="mailto:puebla@gaben.mx" style="text-decoration:none">puebla@gaben.mx</a>
+          </div>
+        </div>
+        <div class="card" style="cursor:default">
+          <div class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+          <h3>Lic. Fernando García Benavides</h3>
+          <p>Dirección · Escalamiento cuando el abogado no responde o es un tema delicado.</p>
+          <div class="chips">
+            <a class="pill acc" href="tel:+528128822228" style="text-decoration:none">81 2882 2228</a>
+            <a class="pill" href="mailto:fbenavides@gaben.mx" style="text-decoration:none">fbenavides@gaben.mx</a>
           </div>
         </div>
       </div>
@@ -509,25 +522,44 @@
   var h=new Date().getHours();
   var g = h<12 ? "Buenos días" : (h<19 ? "Buenas tardes" : "Buenas noches");
   var e=document.getElementById('hi'); if(e) e.textContent=g;
-  // Buscador: filtra tarjetas y oculta secciones sin resultados
+
   var q=document.getElementById('q');
-  if(q){
-    var secs=[].slice.call(document.querySelectorAll('main section.sec'));
-    q.addEventListener('input', function(){
-      var t=q.value.trim().toLowerCase();
-      secs.forEach(function(s){
-        var vis=0;
-        [].slice.call(s.querySelectorAll('.card, details.faq')).forEach(function(c){
-          var ok = !t || c.textContent.toLowerCase().indexOf(t)>-1;
-          c.style.display = ok ? '' : 'none';
-          if(ok) vis++;
-        });
-        // ocultar títulos de categoría de la FAQ al buscar
-        [].slice.call(s.querySelectorAll('.faqcat')).forEach(function(c){c.style.display=t?'none':'';});
-        s.style.display = vis ? '' : 'none';
+  var secs=[].slice.call(document.querySelectorAll('main section.sec'));
+
+  // Ciudad/zona guardada (persistente)
+  var city='all';
+  try{ city = localStorage.getItem('gaben_city') || 'all'; }catch(_){}
+
+  // Filtro combinado: ciudad + búsqueda
+  function apply(){
+    var t = q ? q.value.trim().toLowerCase() : '';
+    secs.forEach(function(s){
+      var vis=0;
+      [].slice.call(s.querySelectorAll('.card, details.faq')).forEach(function(c){
+        var cc = c.getAttribute('data-city') || 'both';
+        var okCity = (city==='all') || (cc==='both') || (cc===city);
+        var okText = !t || c.textContent.toLowerCase().indexOf(t)>-1;
+        var ok = okCity && okText;
+        c.style.display = ok ? '' : 'none';
+        if(ok) vis++;
       });
+      [].slice.call(s.querySelectorAll('.faqcat')).forEach(function(c){c.style.display=t?'none':'';});
+      s.style.display = vis ? '' : 'none';
     });
   }
+
+  // Selector de zona
+  var btns=[].slice.call(document.querySelectorAll('.cbtn'));
+  function setCity(v){
+    city=v;
+    try{ localStorage.setItem('gaben_city', v); }catch(_){}
+    btns.forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-city')===v); });
+    apply();
+  }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ setCity(b.getAttribute('data-city')); }); });
+  if(q){ q.addEventListener('input', apply); }
+
+  setCity(city); // estado inicial (aplica lo guardado)
 })();
 </script>
 </html>
