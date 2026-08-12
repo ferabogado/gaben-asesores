@@ -941,7 +941,7 @@ function drawPDF(q){
     let rh=7;
     if(r.sub){doc.setFont(F,"normal");doc.setFontSize(8);doc.setTextColor(150);doc.text(r.sub,M,y+3.6);rh=10;}
     y+=rh;
-    if(!isTotal){doc.setDrawColor(235);doc.setLineWidth(0.2);doc.line(M,y-2.6,R,y-2.6);}
+    if(!isTotal){doc.setDrawColor(235);doc.setLineWidth(0.2);doc.line(M,y-4.4,R,y-4.4);}
   });
   y+=3;
   if(q.note){nl(24);const nlines=doc.splitTextToSize(q.note,R-M-8);const nh=nlines.length*4+7;
