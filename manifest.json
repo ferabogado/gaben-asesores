@@ -1,0 +1,21 @@
+{
+  "name": "GABEN Asesores",
+  "short_name": "GABEN",
+  "description": "Portal de materiales y herramientas para asesores · GABEN Legal & Partners",
+  "lang": "es-MX",
+  "dir": "ltr",
+  "start_url": "portal.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F1F4F5",
+  "theme_color": "#363A3D",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Cotizador", "short_name": "Cotizador", "url": "cotizador.html" }
+  ]
+}
