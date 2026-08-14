@@ -116,6 +116,11 @@
        display:grid;place-items:center;font-weight:600;font-size:13px}
   .side-foot .n{font-size:13px;font-weight:600;color:var(--ink)}
   .side-foot .r{font-size:11px;color:var(--muted)}
+  .logout{display:flex;align-items:center;gap:10px;margin-top:8px;padding:10px 12px;border-radius:11px;
+    color:var(--muted);font-size:13.5px;font-weight:600;text-decoration:none;border:1px solid var(--line);
+    transition:background .15s,color .15s,border-color .15s}
+  .logout:hover{background:var(--surface-2);color:#c0492f;border-color:transparent}
+  .logout svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;flex:none}
 
   /* ---- Main ---- */
   main{padding:22px clamp(18px,3.5vw,40px) 60px;display:flex;flex-direction:column;gap:26px}
@@ -264,6 +269,10 @@
       <div class="ava"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
       <div><div class="n">Asesor inmobiliario</div><div class="r">GABEN · Legal &amp; Patrimonial</div></div>
     </div>
+    <a class="logout" href="https://gaben.mx" target="_top" title="Cerrar sesión">
+      <svg viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><path d="M10 17l-5-5 5-5M4 12h11"/></svg>
+      Cerrar sesión
+    </a>
   </aside>
 
   <!-- ===== MAIN ===== -->
