@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Calculadora de comisiones · GABEN</title>
+<!-- Modo app (PWA) -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#363A3D">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="GABEN Asesores">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<style>
+  :root{
+    --canvas:#F1F4F5; --surface:#FFFFFF; --surface-2:#F7F9FA;
+    --ink:#22282B; --ink-strong:#1A1A1A; --muted:#6E7173; --faint:#9AA2A6;
+    --line:#E6EAEC;
+    --brand:#363A3D;
+    --accent:#2E4A58;
+    --accent-2:#3C6C82;
+    --accent-tint:#E9F1F4;
+    --accent-ink:#FFFFFF;
+    --warn:#8A6D2F; --warn-bg:#F7EFDC;
+    --shadow-sm:0 1px 2px rgba(26,26,26,.05), 0 4px 14px rgba(26,26,26,.05);
+    --shadow-md:0 10px 30px rgba(34,40,43,.10);
+    --r:18px; --r-sm:13px;
+    --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",system-ui,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --canvas:#141719; --surface:#20252A; --surface-2:#1B2024;
+      --ink:#ECEFF0; --ink-strong:#FFFFFF; --muted:#A9B0B3; --faint:#78807F;
+      --line:#2F363B; --brand:#EDEDED; --accent:#6FA0B7; --accent-2:#8FC0D6;
+      --accent-tint:rgba(111,160,183,.15); --accent-ink:#0E1C24;
+      --warn:#D9BE86; --warn-bg:rgba(200,160,80,.14);
+      --shadow-sm:0 1px 2px rgba(0,0,0,.3); --shadow-md:0 14px 34px rgba(0,0,0,.45);
+    }
+  }
+  :root[data-theme="light"]{
+    --canvas:#F1F4F5; --surface:#FFFFFF; --surface-2:#F7F9FA; --ink:#22282B;
+    --ink-strong:#1A1A1A; --muted:#6E7173; --faint:#9AA2A6; --line:#E6EAEC;
+    --brand:#363A3D; --accent:#2E4A58; --accent-2:#3C6C82; --accent-tint:#E9F1F4;
+    --accent-ink:#FFFFFF; --warn:#8A6D2F; --warn-bg:#F7EFDC;
+  }
+  :root[data-theme="dark"]{
+    --canvas:#141719; --surface:#20252A; --surface-2:#1B2024; --ink:#ECEFF0;
+    --ink-strong:#FFFFFF; --muted:#A9B0B3; --faint:#78807F; --line:#2F363B;
+    --brand:#EDEDED; --accent:#6FA0B7; --accent-2:#8FC0D6; --accent-tint:rgba(111,160,183,.15);
+    --accent-ink:#0E1C24; --warn:#D9BE86; --warn-bg:rgba(200,160,80,.14);
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--canvas);color:var(--ink);font-family:var(--sans);
+       -webkit-font-smoothing:antialiased;line-height:1.5;letter-spacing:-.01em}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent-2);outline-offset:2px;border-radius:8px}
+  .wrap{max-width:820px;margin:0 auto;padding:0 clamp(16px,4vw,28px)}
+
+  .volver{display:inline-flex;align-items:center;gap:7px;color:var(--accent);font-weight:600;
+    font-size:13px;text-decoration:none;border:1px solid var(--line);border-radius:10px;
+    padding:8px 14px;background:var(--surface);box-shadow:var(--shadow-sm);margin:14px 0 2px}
+  @media print{.volver{display:none}}
+
+  header.top{display:flex;align-items:center;justify-content:space-between;gap:16px;
+    flex-wrap:wrap;padding:18px 0 16px;border-bottom:1px solid var(--line);margin-top:12px}
+  .brandlogo{height:34px;width:auto;max-width:200px;display:block}
+  .brandlogo.dk{display:none}
+  @media (prefers-color-scheme:dark){.brandlogo.lt{display:none}.brandlogo.dk{display:block}}
+  :root[data-theme="dark"] .brandlogo.lt{display:none}
+  :root[data-theme="dark"] .brandlogo.dk{display:block}
+  :root[data-theme="light"] .brandlogo.lt{display:block}
+  :root[data-theme="light"] .brandlogo.dk{display:none}
+
+  h1{margin:26px 0 6px;font-size:clamp(23px,3.4vw,30px);font-weight:700;
+     letter-spacing:-.025em;color:var(--ink-strong)}
+  .lead{margin:0 0 24px;color:var(--muted);font-size:14.5px;max-width:62ch}
+
+  fieldset{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);
+           padding:20px;margin:0 0 16px;box-shadow:var(--shadow-sm)}
+  legend{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;
+         color:var(--accent);padding:0 8px}
+  label{display:block;font-size:12.5px;font-weight:600;color:var(--muted);margin-bottom:6px}
+
+  /* ---- filas de servicio ---- */
+  .fila{border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface-2);
+        padding:15px;margin-bottom:12px;position:relative}
+  .fila + .fila{margin-top:0}
+  .quitar{position:absolute;top:10px;right:10px;width:28px;height:28px;border-radius:8px;
+        border:1px solid var(--line);background:var(--surface);color:var(--muted);
+        font-size:15px;line-height:1;cursor:pointer;font-family:var(--sans)}
+  .quitar:hover{color:#B3261E;border-color:#B3261E}
+  select,input[type=text]{width:100%;padding:12px 13px;border:1px solid var(--line);
+        border-radius:10px;background:var(--surface);color:var(--ink);
+        font-family:var(--sans);font-size:16px;font-variant-numeric:tabular-nums}
+  select{appearance:none;-webkit-appearance:none;cursor:pointer;font-weight:600;
+        background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),
+                         linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+        background-position:calc(100% - 19px) 50%, calc(100% - 14px) 50%;
+        background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:38px}
+  select:focus,input[type=text]:focus{outline:none;border-color:var(--accent-2)}
+  .campos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+  @media (max-width:560px){.campos{grid-template-columns:1fr}}
+  .seg{display:flex;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;
+       background:var(--surface)}
+  .seg button{flex:1;padding:12px 6px;border:0;background:transparent;color:var(--muted);
+       font-family:var(--sans);font-size:13.5px;font-weight:600;cursor:pointer}
+  .seg button.on{background:var(--accent);color:var(--accent-ink)}
+  .filares{margin-top:12px;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .filares b{color:var(--accent);font-weight:700}
+  .filares[hidden]{display:none}
+  .mas{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:11px;
+       border:1px dashed var(--line);background:transparent;color:var(--accent);
+       font-family:var(--sans);font-size:13.5px;font-weight:600;cursor:pointer}
+  .mas:hover{border-color:var(--accent-2);background:var(--accent-tint)}
+
+  /* ---- interruptor ---- */
+  .sw{display:flex;align-items:center;gap:13px;padding:14px;border:1px solid var(--line);
+      border-radius:var(--r-sm);background:var(--surface-2);cursor:pointer}
+  .sw input{position:absolute;opacity:0;pointer-events:none}
+  .sw .pill{width:46px;height:27px;border-radius:14px;background:var(--line);flex:none;
+        position:relative;transition:background .16s}
+  .sw .pill::after{content:"";position:absolute;top:3px;left:3px;width:21px;height:21px;
+        border-radius:50%;background:var(--surface);transition:transform .16s;
+        box-shadow:0 1px 3px rgba(0,0,0,.2)}
+  .sw input:checked + .pill{background:var(--accent)}
+  .sw input:checked + .pill::after{transform:translateX(19px)}
+  .sw b{font-size:14px;font-weight:600;display:block;color:var(--ink)}
+  .sw small{font-size:12px;color:var(--faint)}
+
+  .ops{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+  @media (max-width:560px){.ops{grid-template-columns:1fr}}
+  .op{position:relative;margin:0}
+  .op input{position:absolute;opacity:0;pointer-events:none}
+  .op span{display:block;padding:14px;border:1px solid var(--line);border-radius:var(--r-sm);
+        background:var(--surface-2);cursor:pointer;font-size:14px;font-weight:600;color:var(--ink)}
+  .op span small{display:block;font-weight:400;font-size:12px;color:var(--faint);margin-top:3px}
+  .op input:checked + span{border-color:var(--accent-2);background:var(--accent-tint);
+        box-shadow:inset 0 0 0 1px var(--accent-2)}
+
+  /* ---- resultado ---- */
+  .res{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+       padding:clamp(18px,4vw,28px);box-shadow:var(--shadow-md);margin-top:24px}
+  .ren{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding:11px 0;
+       border-bottom:1px dotted var(--line);font-size:14.5px;font-variant-numeric:tabular-nums}
+  .ren .cc{flex:1}
+  .ren .dd{display:block;font-size:11.5px;color:var(--faint);margin-top:2px}
+  .ren .mm{font-weight:600;white-space:nowrap}
+  .total{display:flex;justify-content:space-between;gap:16px;align-items:baseline;margin-top:18px;
+         padding:18px 20px;border-radius:var(--r-sm);background:var(--brand)}
+  .total .et{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+             color:#B9C6CC;font-weight:700}
+  .total .vl{font-size:clamp(24px,5vw,32px);font-weight:700;color:#FFFFFF;
+             font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.02em}
+  .equiv{margin-top:10px;font-size:13px;color:var(--muted);text-align:right}
+  .equiv b{color:var(--accent)}
+
+  .fiscal{margin-top:22px;padding-top:18px;border-top:2px solid var(--brand)}
+  .fiscal h3{margin:0 0 4px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+        font-weight:700;color:var(--accent)}
+  .fiscal .sub2{font-size:12.5px;color:var(--faint);margin:0 0 10px}
+  .neto{display:flex;justify-content:space-between;gap:16px;align-items:baseline;margin-top:16px;
+        padding:16px 18px;border-radius:var(--r-sm);border:2px solid var(--accent-2);
+        background:var(--accent-tint)}
+  .neto .et{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+        color:var(--accent);font-weight:700}
+  .neto .vl{font-size:clamp(20px,4vw,26px);font-weight:700;color:var(--ink-strong);
+        font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.02em}
+  .avisof{margin-top:14px;background:var(--warn-bg);color:var(--warn);border-radius:var(--r-sm);
+        padding:12px 15px;font-size:12.5px;line-height:1.55}
+  .avisof b{font-weight:700}
+  .nota{margin-top:20px;padding-top:14px;border-top:1px solid var(--line);
+        font-size:11.5px;color:var(--faint);line-height:1.6}
+  footer{text-align:center;color:var(--faint);font-size:11.5px;padding:34px 0 60px;line-height:1.7}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="volver" href="portal.html">← Volver al portal</a>
+
+  <header class="top">
+    <img class="brandlogo lt" src="gaben-logo-black.svg" alt="GABEN Legal &amp; Patrimonial">
+    <img class="brandlogo dk" src="gaben-logo-white.svg" alt="GABEN Legal &amp; Patrimonial">
+  </header>
+
+  <h1>Calculadora de comisiones</h1>
+  <p class="lead">Cuánto te toca a ti por la póliza o el servicio que cerraste.
+     Captura el monto tal como quedó en la póliza y dinos si ya trae IVA: el cálculo se hace
+     siempre sobre el monto <b>sin IVA</b>.</p>
+
+  <form id="f" autocomplete="off">
+    <fieldset>
+      <legend>Lo que cerraste</legend>
+      <div id="filas"></div>
+      <button type="button" class="mas" id="agregar">＋ Agregar otro servicio</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Si vas a facturar</legend>
+      <label class="sw" for="factura">
+        <input type="checkbox" id="factura">
+        <span class="pill"></span>
+        <span><b>Calcular con factura</b>
+          <small>Para que te lo transfieran tienes que facturar · te desglosa el IVA</small></span>
+      </label>
+
+      <div id="wregimen" hidden style="margin-top:18px">
+        <label>¿En qué régimen estás?</label>
+        <div class="ops">
+          <label class="op">
+            <input type="radio" name="regimen" value="resico" checked>
+            <span>RESICO
+              <small>Simplificado de Confianza · actividad empresarial</small></span>
+          </label>
+          <label class="op">
+            <input type="radio" name="regimen" value="general">
+            <span>Actividad empresarial y profesional
+              <small>Régimen general</small></span>
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+  <div id="salida"></div>
+
+  <footer>GABEN Legal &amp; Patrimonial · uso interno de asesores</footer>
+</div>
+
+<script>
+/* ── Tabulador de comisiones ──────────────────────────────────────
+   Fuente: "Cálculo de comisiones – Servicios Legales" (SGC GABEN,
+   código HH-FTAD, versión 01, 1-jun-2026), carpeta de Alan Ramírez.
+   Los porcentajes se verificaron además contra los pagos ya hechos
+   en "CONTROL PÓLIZAS - COMISIONES - RENOVACIONES": p. ej. folio
+   1147 póliza Plus de $17,300 con IVA → 17,300/1.16 × 20% = $2,982.76,
+   que es exactamente lo que se pagó.
+   La comisión SIEMPRE se calcula sobre el monto SIN IVA.
+   ──────────────────────────────────────────────────────────────── */
+const SERVICIOS = [
+  { id:"digital",  n:"Garantía Jurídica Digital",     pct:5  },
+  { id:"basica",   n:"Garantía Jurídica Básica",      pct:15, alias:"antes Estándar" },
+  { id:"plus",     n:"Garantía Jurídica Plus",        pct:20, alias:"antes Clásica"  },
+  { id:"elite",    n:"Garantía Jurídica Élite",       pct:25, alias:"antes Premium"  },
+  { id:"renov",    n:"Renovación de contrato",        pct:30, alias:"sin cambio de partes ni de objeto" },
+  { id:"contrato", n:"Contrato de arrendamiento",     pct:30, alias:"incluye investigación de dos personas, no incluye visita" }
+];
+
+/* ── Impuestos ───────────────────────────────────────────────────
+   IVA 16% · LIVA art. 1o.
+   GABEN factura y paga como PERSONA FÍSICA (Fernando García
+   Benavides). Las obligaciones de retener ISR e IVA son de las
+   PERSONAS MORALES — LISR art. 113-J (retención del 1.25% a RESICO)
+   y LIVA art. 1o.-A fr. II —, así que aquí NO hay retenciones:
+   se transfiere el total de la factura, IVA incluido.
+   Ese IVA no es tuyo: lo enteras al SAT en tu declaración.
+   ──────────────────────────────────────────────────────────────── */
+const IVA = 0.16;
+const RETIENE = false;   // ← ponlo en true sólo si quien paga es persona moral
+
+const $  = id => document.getElementById(id);
+const mxn = n => new Intl.NumberFormat("es-MX",{style:"currency",currency:"MXN",
+                   minimumFractionDigits:2}).format(isFinite(n) ? n : 0);
+const soloNum = s => parseFloat(String(s).replace(/[^\d.]/g,"")) || 0;
+const conComas = s => {
+  const [ent, dec] = String(s).split(".");
+  const e = ent.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return dec !== undefined ? e + "." + dec : e;
+};
+
+let idFila = 0;
+
+function nuevaFila(){
+  const i = idFila++;
+  const div = document.createElement("div");
+  div.className = "fila";
+  div.dataset.i = i;
+  div.dataset.iva = "con";           // el monto capturado trae IVA, por defecto
+  div.innerHTML = `
+    <button type="button" class="quitar" title="Quitar este servicio" hidden>✕</button>
+    <label for="serv${i}">Servicio</label>
+    <select id="serv${i}" class="serv">
+      ${SERVICIOS.map(s => `<option value="${s.id}">${s.n} — ${s.pct}%</option>`).join("")}
+    </select>
+    <div class="campos">
+      <div>
+        <label for="monto${i}">Monto de la póliza</label>
+        <input id="monto${i}" class="monto" type="text" inputmode="decimal" placeholder="$ 0">
+      </div>
+      <div>
+        <label>Ese monto…</label>
+        <div class="seg">
+          <button type="button" class="on" data-iva="con">Ya trae IVA</button>
+          <button type="button" data-iva="sin">Es sin IVA</button>
+        </div>
+      </div>
+    </div>
+    <p class="filares" hidden></p>`;
+
+  div.querySelector(".monto").addEventListener("input", e => {
+    const crudo = e.target.value.replace(/[^\d.]/g,"");
+    const [ent, ...dec] = crudo.split(".");
+    const limpio = dec.length ? ent + "." + dec.join("").slice(0,2) : ent;
+    e.target.value = limpio === "" ? "" : conComas(limpio);
+    calcula();
+  });
+  div.querySelector(".serv").addEventListener("change", calcula);
+  div.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => {
+    div.dataset.iva = b.dataset.iva;
+    div.querySelectorAll(".seg button").forEach(x => x.classList.toggle("on", x === b));
+    calcula();
+  }));
+  div.querySelector(".quitar").addEventListener("click", () => { div.remove(); pintaQuitar(); calcula(); });
+
+  $("filas").appendChild(div);
+  pintaQuitar();
+}
+
+function pintaQuitar(){
+  const filas = document.querySelectorAll(".fila");
+  filas.forEach(f => f.querySelector(".quitar").hidden = filas.length < 2);
+}
+
+function leeFilas(){
+  return [...document.querySelectorAll(".fila")].map(f => {
+    const serv = SERVICIOS.find(s => s.id === f.querySelector(".serv").value);
+    const capturado = soloNum(f.querySelector(".monto").value);
+    const base = f.dataset.iva === "con" ? capturado / (1 + IVA) : capturado;
+    const comision = base * serv.pct / 100;
+    return { f, serv, capturado, conIva:f.dataset.iva === "con", base, comision };
+  });
+}
+
+function bloqueFiscal(subtotal){
+  if (!$("factura").checked) return "";
+  const reg   = document.querySelector('input[name="regimen"]:checked').value;
+  const iva   = subtotal * IVA;
+  const total = subtotal + iva;
+  const nombre = reg === "resico" ? "RESICO · actividad empresarial"
+                                  : "Actividad empresarial y profesional";
+  const propio = reg === "resico"
+    ? `En RESICO tú pagas tu ISR en tu declaración mensual: <b>1%</b> de tus ingresos del mes
+       si no pasan de $25,000 (sube a 1.1%, 1.5%, 2% y 2.5% conforme creces — LISR art. 113-E).`
+    : `En el régimen general tú pagas tu ISR en tus pagos provisionales, con la tarifa del
+       art. 96 sobre tu utilidad. Lo calcula tu contador.`;
+  return `
+    <div class="fiscal">
+      <h3>Así queda tu factura</h3>
+      <p class="sub2">${nombre} · a nombre de Fernando García Benavides (GABEN)</p>
+      <div class="ren"><span class="cc">Subtotal<span class="dd">Tu comisión</span></span>
+        <span class="mm">${mxn(subtotal)}</span></div>
+      <div class="ren"><span class="cc">IVA trasladado<span class="dd">16%</span></span>
+        <span class="mm">${mxn(iva)}</span></div>
+      <div class="neto">
+        <span class="et">Te transfieren</span>
+        <span class="vl">${mxn(total)}</span>
+      </div>
+      <div class="avisof">
+        <b>No hay retenciones.</b> GABEN paga como persona física, y las retenciones de ISR e IVA
+        sólo las hacen las personas morales (LISR art. 113-J · LIVA art. 1o.-A fr. II).
+        Recibes el total de la factura — pero <b>ese IVA no es tuyo</b>: lo enteras al SAT.
+        ${propio}
+      </div>
+    </div>`;
+}
+
+function calcula(){
+  const filas = leeFilas();
+  let totalBase = 0, totalCom = 0;
+
+  filas.forEach(r => {
+    const p = r.f.querySelector(".filares");
+    if (r.capturado <= 0){ p.hidden = true; return; }
+    p.hidden = false;
+    p.innerHTML = r.conIva
+      ? `Base sin IVA <b>${mxn(r.base)}</b> · ${r.serv.pct}% → comisión <b>${mxn(r.comision)}</b>`
+      : `Base <b>${mxn(r.base)}</b> · ${r.serv.pct}% → comisión <b>${mxn(r.comision)}</b>`;
+    totalBase += r.base;
+    totalCom  += r.comision;
+  });
+
+  if (totalCom <= 0){ $("salida").innerHTML = ""; return; }
+
+  const detalle = filas.filter(r => r.capturado > 0).map(r => `
+      <div class="ren">
+        <span class="cc">${r.serv.n}
+          <span class="dd">${mxn(r.capturado)} ${r.conIva ? "con IVA → " + mxn(r.base) + " sin IVA"
+                                                          : "sin IVA"} · ${r.serv.pct}%</span></span>
+        <span class="mm">${mxn(r.comision)}</span>
+      </div>`).join("");
+
+  const pctProm = totalBase > 0 ? totalCom / totalBase * 100 : 0;
+
+  $("salida").innerHTML = `
+    <div class="res">
+      ${detalle}
+      <div class="ren">
+        <span class="cc">Base de cálculo<span class="dd">Suma de los montos sin IVA</span></span>
+        <span class="mm">${mxn(totalBase)}</span>
+      </div>
+
+      <div class="total">
+        <span class="et">Te corresponde</span>
+        <span class="vl">${mxn(totalCom)}</span>
+      </div>
+      <p class="equiv">Equivale al <b>${pctProm.toFixed(2)}%</b> de la base sin IVA.</p>
+
+      ${bloqueFiscal(totalCom)}
+
+      <p class="nota">
+        Tabulador del formato <b>Cálculo de comisiones – Servicios Legales</b> (SGC GABEN, HH-FTAD
+        v.01). La comisión se calcula <b>siempre sobre el monto sin IVA</b>: si capturas el monto con
+        IVA, se divide entre 1.16 antes de aplicar el porcentaje.
+        Es una herramienta de apoyo — el pago se confirma con administración, y de tu situación
+        fiscal <b>la última palabra la tiene tu contador</b>.
+      </p>
+    </div>`;
+}
+
+$("agregar").addEventListener("click", () => { nuevaFila(); calcula(); });
+$("factura").addEventListener("change", e => { $("wregimen").hidden = !e.target.checked; calcula(); });
+document.querySelectorAll('input[name="regimen"]').forEach(el => el.addEventListener("change", calcula));
+
+nuevaFila();
+</script>
+</body>
+</html>
